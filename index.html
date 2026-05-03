@@ -1,36 +1,186 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Jonah Virel</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            font-family: Arial;
-            text-align: center;
-        }
-        h1 {
-            font-size: 50px;
-            margin-top: 50px;
-        }
-        img {
-            width: 300px;
-            margin: 10px;
-            border-radius: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonah Virel</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #050505;
+    color: #f1f1f1;
+    overflow-x: hidden;
+}
+
+/* NOISE OVERLAY (EDGY LOOK) */
+body::after {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    text-align: center;
+    padding: 15px;
+    z-index: 1000;
+}
+nav a {
+    color: #888;
+    margin: 0 20px;
+    text-decoration: none;
+}
+nav a:hover {
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero h1 {
+    font-size: 80px;
+    letter-spacing: 5px;
+    margin: 0;
+}
+.hero p {
+    color: #777;
+}
+
+/* GLITCH EFFECT */
+.glitch {
+    position: relative;
+}
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+}
+.glitch::before {
+    color: red;
+    transform: translate(2px, 0);
+}
+.glitch::after {
+    color: blue;
+    transform: translate(-2px, 0);
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+}
+.gallery img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: 0.4s;
+}
+.gallery img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.03);
+}
+
+/* MUSIC */
+.music {
+    text-align: center;
+}
+
+/* CONTACT */
+.contact {
+    text-align: center;
+}
+.contact a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #555;
+}
+</style>
 </head>
+
 <body>
 
-<h1>Jonah Virel</h1>
-<p>Artist</p>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#work">Work</a>
+    <a href="#music">Music</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-<h2>Gallery</h2>
-<img src="https://via.placeholder.com/300">
-<img src="https://via.placeholder.com/300">
+<div class="hero" id="home">
+    <h1 class="glitch" data-text="Jonah Virel">Jonah Virel</h1>
+    <p>Visual / Sonic Artist</p>
+</div>
 
-<h2>Contact</h2>
-<p>Email: jonah@email.com</p>
+<section id="work">
+    <h2>Selected Work</h2>
+    <div class="gallery">
+
+        <!-- REPLACE THESE WITH YOUR REAL ART -->
+        <img src="art1.jpg">
+        <img src="art2.jpg">
+        <img src="art3.jpg">
+        <img src="art4.jpg">
+
+    </div>
+</section>
+
+<section id="music">
+    <h2 style="text-align:center;">Music</h2>
+    <div class="music">
+
+        <!-- 🔥 REPLACE THIS SPOTIFY LINK -->
+        <iframe style="border-radius:12px" 
+        src="https://open.spotify.com/embed/artist/YOUR_SPOTIFY_ID" 
+        width="100%" height="352" frameBorder="0" allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+
+    </div>
+</section>
+
+<section id="contact">
+    <h2 style="text-align:center;">Contact</h2>
+    <p class="contact">
+        <a href="mailto:jonah@email.com">jonah@email.com</a>
+    </p>
+</section>
+
+<footer>
+    © 2026 Jonah Virel
+</footer>
 
 </body>
 </html>
